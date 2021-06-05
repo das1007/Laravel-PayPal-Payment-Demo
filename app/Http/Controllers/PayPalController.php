@@ -65,8 +65,8 @@ class PayPalController extends Controller
             ->setDescription('Enter Your transaction description');
 
         $redirect_urls = new RedirectUrls();
-        $redirect_urls->setReturnUrl(URL::route('getPaypal'))
-        ->setCancelUrl(URL::route('getPaypal'));
+        $redirect_urls->setReturnUrl(URL::route('success.paypal'))
+        ->setCancelUrl(URL::route('success.paypal'));
 
         $payment = new Payment();
         $payment->setIntent('Sale')
@@ -109,7 +109,7 @@ class PayPalController extends Controller
         Session::forget('paypal_payment_id');
         if (empty($request->input('PayerID')) || empty($request->input('token'))) {
             \Session::put('error', 'Payment failed');
-            return Redirect::route('paywithpaypal');
+            return Redirect::route('amount.paywithpaypal');
         }
         $payment = Payment::get($payment_id, $this->_api_context);
         $execution = new PaymentExecution();
@@ -118,10 +118,10 @@ class PayPalController extends Controller
 
         if ($result->getState() == 'approved') {
             \Session::put('success', 'Payment success !!');
-            return Redirect::route('paywithpaypal');
+            return Redirect::route('amount.paywithpaypal');
         }
 
         \Session::put('error', 'Payment failed !!');
-        return Redirect::route('paywithpaypal');
+        return Redirect::route('amount.paywithpaypal');
     }
 }
