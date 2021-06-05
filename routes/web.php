@@ -18,8 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/paywithpaypal',[PayPalController::class , 'payWithPaypal']);
-Route::post('/paypal',[PayPalController::class , 'postPaymentWithpaypal']);
-Route::get('/getPaypal',[PayPalController::class , 'getPaymentStatus']);
+Route::get('/paywithpaypal',[PayPalController::class , 'payWithPaypal'])->name('amount.paywithpaypal');
+Route::get('/paypal',[PayPalController::class , 'getPaymentStatus']);
+Route::post('/paypal',[PayPalController::class , 'postPaymentWithpaypal'])->name('success.paypal');
 // Route::post('paypal', array('as' => 'paypal','uses' => 'PayPalController@postPaymentWithpaypal',));
 // Route::get('paypal', array('as' => 'status','uses' => 'PayPalController@getPaymentStatus',));
