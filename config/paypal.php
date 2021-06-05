@@ -1,7 +1,7 @@
 <?php 
 return [ 
-    'client_id' => 'ATlVrsdtrtO6fENZLBvvTaPnJQyFQMNnc5ZpGTVNHIxsS4Jd0MsSphl1iQaHm8cJzuQdhv7KqZUVIpdk',
-	'secret' => 'EN2SbyqdMni_d_nv86cZm0rGEvN4jctMLJVXiQ86I7kkbZKHNfVxpCwS1cRdLGJ2hLfulvR2_oIyGu4X',
+    'client_id' => 'Add Client_ID',
+	'secret' => 'Add Secret Key',
     'settings' => array(
         'mode' => 'sandbox',
         'http.ConnectionTimeOut' => 1000,
